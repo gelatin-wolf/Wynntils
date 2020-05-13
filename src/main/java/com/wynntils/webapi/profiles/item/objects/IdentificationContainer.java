@@ -5,8 +5,11 @@
 package com.wynntils.webapi.profiles.item.objects;
 
 import com.wynntils.core.utils.StringUtils;
+import com.wynntils.modules.utilities.enums.LanguageType;
+import com.wynntils.modules.utilities.localization.LocalizationModule;
 import com.wynntils.webapi.profiles.item.enums.IdentificationModifier;
 import org.apache.commons.lang3.math.Fraction;
+import org.apache.logging.log4j.LogManager;
 
 public class IdentificationContainer {
 
@@ -58,6 +61,7 @@ public class IdentificationContainer {
     }
 
     public static String getAsLongName(String shortName) {
+        /*
         if (shortName.startsWith("raw")) {
             shortName = shortName.substring(3);
             shortName = Character.toLowerCase(shortName.charAt(0)) + shortName.substring(1);
@@ -70,6 +74,9 @@ public class IdentificationContainer {
         }
 
         return StringUtils.capitalizeFirst(nameBuilder.toString());
+        */
+        String var = LocalizationModule.getConfig(LanguageType.Korean, "config.items.identification." + shortName);
+        return var;
     }
 
     public static class ReidentificationChances {

@@ -17,6 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
+import org.apache.logging.log4j.LogManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -78,6 +79,7 @@ public class ItemProfile {
     public ItemInfoContainer getItemInfo() {
         return itemInfo;
     }
+
 
     public ItemRequirementsContainer getRequirements() {
         return requirements;
@@ -189,6 +191,7 @@ public class ItemProfile {
                 HashMap<String, String> statusLore = new HashMap<>();
                 for (String idName : statuses.keySet()) {
                     IdentificationContainer id = statuses.get(idName);
+                    LogManager.getFormatterLogger("wynntils_test").info("Name : " + idName + ", id : " + id.getType() + ", name : " + id.getAsLongName(idName));
 
                     statusLore.put(idName, getIDLore(id, idName));
                 }

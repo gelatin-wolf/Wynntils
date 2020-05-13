@@ -12,6 +12,7 @@ import com.wynntils.modules.utilities.configs.SoundEffectsConfig;
 import com.wynntils.modules.utilities.configs.UtilitiesConfig;
 import com.wynntils.modules.utilities.events.ClientEvents;
 import com.wynntils.modules.utilities.events.ServerEvents;
+import com.wynntils.modules.utilities.localization.LocalizationModule;
 import com.wynntils.modules.utilities.managers.KeyManager;
 import com.wynntils.modules.utilities.overlays.OverlayEvents;
 import com.wynntils.modules.utilities.overlays.hud.*;
@@ -27,6 +28,7 @@ public class UtilitiesModule extends Module {
         module = this;
 
         KeyManager.registerKeys();
+        LocalizationModule.loadConfig();
 
         registerEvents(new ServerEvents());
         registerEvents(new OverlayEvents());
